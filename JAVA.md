@@ -2351,10 +2351,10 @@ JDK 内置的拒绝策略如下：
 
 <img src="https://s0.lgstatic.com/i/image3/M01/63/5A/CgpOIF4z1EiAFjNQAAAtVe5xjgQ999.png" alt="img" style="zoom: 50%;" />
 
-- **newSingleThreadExecutor()：**只有一个线程的线程池，任务是顺序执行，适用于一个一个任务执行的场景
-- **newCachedThreadPool()：**线程池里有很多线程需要同时执行，60s内复用，适用执行很多短期异步的小程序或者负载较轻的服务
-- **newFixedThreadPool()：**拥有固定线程数的线程池，如果没有任务执行，那么线程会一直等待，适用执行长期的任务。
-- **newScheduledThreadPool()：**用来调度即将执行的任务的线程池
+- **newFixedThreadPool()**：拥有固定线程数的线程池，如果没有任务执行，那么线程会一直等待，适用执行长期的任务。
+- **newSingleThreadExecutor()**：只有一个线程的线程池，任务是顺序执行，适用于一个一个任务执行的场景
+- **newCachedThreadPool()**：线程池里有很多线程需要同时执行，60s内复用，适用执行很多短期异步的小程序或者负载较轻的服务
+- **newScheduledThreadPool()**：用来调度即将执行的任务的线程池
 - **newWorkStealingPool()**：底层采用forkjoin的Deque，采用独立的任务队列可以减少竞争同时加快任务处理
 - 
 - <img src="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" alt="img" style="zoom:50%;" />
