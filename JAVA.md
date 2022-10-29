@@ -2337,15 +2337,13 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 
 JDK 内置的拒绝策略如下：
 
-​		**AbortPolicy：**直接抛出异常，阻止系统正常运行。可以根据业务逻辑选择重试或者放弃提交等策略。
+​		**AbortPolicy**：直接抛出异常，阻止系统正常运行。可以根据业务逻辑选择重试或者放弃提交等策略。
 
-​		**CallerRunsPolicy ：**只要线程池未关闭，该策略直接在调用者线程中，运行当前被丢弃的任务。
+​		**CallerRunsPolicy**：只要线程池未关闭，该策略直接在调用者线程中，运行当前被丢弃的任务。不会造成任务丢失，同时减缓提交任务的速度，给执行任务缓冲时间。
 
-​				不会造成任务丢失，同时减缓提交任务的速度，给执行任务缓冲时间。
+​		**DiscardOldestPolicy**：丢弃最老的一个请求，也就是即将被执行的任务，并尝试再次提交当前任务。
 
-​		**DiscardOldestPolicy ：**丢弃最老的一个请求，也就是即将被执行的任务，并尝试再次提交当前任务。
-
-​		**DiscardPolicy ：**该策略默默地丢弃无法处理的任务，不予任何处理。如果允许任务丢失，这是最好的一种方案。
+​		**DiscardPolicy**: 该策略默默地丢弃无法处理的任务，不予任何处理。如果允许任务丢失，这是最好的一种方案。
 
 #### **4、Execuors类实现线程池**
 
@@ -2356,8 +2354,8 @@ JDK 内置的拒绝策略如下：
 - **newCachedThreadPool()**：线程池里有很多线程需要同时执行，60s内复用，适用执行很多短期异步的小程序或者负载较轻的服务
 - **newScheduledThreadPool()**：用来调度即将执行的任务的线程池
 - **newWorkStealingPool()**：底层采用forkjoin的Deque，采用独立的任务队列可以减少竞争同时加快任务处理
-- 
-- <img src="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" alt="img" style="zoom:50%;" />
+
+<img src="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" alt="img" style="zoom:50%;" />
 
 **因为以上方式都存在弊端：**
 
